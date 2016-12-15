@@ -8,7 +8,7 @@ public class TestVideogame {
 		
 			DBNegozioXML db = 
 					new DBNegozioXML(
-					"C:\\Users\\user\\Downloads\\videogames.xml");
+					"C:\\Users\\corso1\\Documents\\JAVAINTERMEDIO\\xml\\mediaworld.xml");
 
 			ArrayList<Articolo> ris = db.articoli("ram");
 			
