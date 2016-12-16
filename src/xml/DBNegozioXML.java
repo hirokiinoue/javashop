@@ -83,6 +83,9 @@ public class DBNegozioXML implements IDBNegozio{
 		case "hd":
 			ris = this.hdDaXML(n);
 			break;
+		case "telefono":
+			ris = this.telefonoDaXML(n);
+			break;
 		default:
 		}
 		//Fine switch
@@ -230,6 +233,68 @@ public class DBNegozioXML implements IDBNegozio{
 			default:
 			}
 		}
+		return ris;
+	}
+	
+	private Telefono telefonoDaXML(Node n){
+		
+		Telefono ris = null;
+		
+		String nome = "";
+		String descrizione = "";
+		String marca = "";
+		int ram = 0;
+		double prezzo = 0;
+		int memoria = 0;
+		String sistemaoperativo = "";
+		String LTE = "";
+		String DUALSIM = "";
+		
+		NodeList campi = n.getChildNodes();
+		
+		for (int i = 0; i<campi.getLength(); i++){
+			switch(campi.item(i).getNodeName())	{
+			case "titolo":
+				nome = campi.item(i).getTextContent();
+				break;
+			case "descrizione":
+				descrizione = campi.item(i).getTextContent();
+				break;
+			case "marca":
+				marca = campi.item(i).getTextContent();
+				break;
+			case "ram":
+				ram = Integer.parseInt(campi.item(i).getTextContent());
+				break;
+			case "prezzo":
+				prezzo = Integer.parseInt(campi.item(i).getTextContent());
+				break;
+			case "memoria":
+				memoria = Integer.parseInt(campi.item(i).getTextContent());
+				break;
+			case "sistemaoperativo":
+				sistemaoperativo = campi.item(i).getTextContent();
+				break;
+			case "lte":
+				LTE = campi.item(i).getTextContent();
+				break;
+			case "dualsim":
+				DUALSIM = campi.item(i).getTextContent();
+				break;
+			default:
+			}		
+		}
+
+		ris = new Telefono(nome,
+							descrizione,
+							marca,
+							new Ram("SAMUSUNG","",50,ram,"DDR3"),
+							prezzo,
+							new Hd("SAMUSUNG","",50,memoria),
+							sistemaoperativo,
+							LTE,
+							DUALSIM);
+		
 		return ris;
 	}
 	

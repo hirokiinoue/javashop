@@ -24,5 +24,9 @@ public Hd(String nome, String descrizione, double prezzo, int capacita) {
 		// TODO Auto-generated method stub
 		return getNome()+" "+capacita;
 	}
+	
+	public int getCapacita(){
+		return this.capacita;
+	}
 
 }

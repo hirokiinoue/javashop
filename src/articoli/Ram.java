@@ -24,6 +24,10 @@ public class Ram extends Articolo {
 		// TODO Auto-generated method stub
 		return tipo+" "+giga;
 	}
+	
+	public int getGiga() {
+		return this.giga;
+	}
 
 	public String toXML()
 	{
